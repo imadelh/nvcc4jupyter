@@ -12,7 +12,7 @@ ext = '.cu'
 
 def get_argparser():
     parser = argparse.ArgumentParser(description='NVCCPlugin params')
-    parser.add_argument("-t", "--timeit", action='store_true',
+    parser.add_argument("-std=c++11","-t", "--timeit", action='store_true',
                         help='flag to return timeit result instead of stdout')
     return parser
 
@@ -26,7 +26,7 @@ class NVCCPlugin(ipym.Magics):
 
     @staticmethod
     def compile(file_path):
-        subprocess.check_output([compiler, file_path + ext, "-o", file_path + ".out" + "-std=c++11"], stderr=subprocess.STDOUT)
+        subprocess.check_output([compiler, file_path + ext, "-o", file_path + ".out"], stderr=subprocess.STDOUT)
 
     def run(self, file_path, timeit=False):
         if timeit:
