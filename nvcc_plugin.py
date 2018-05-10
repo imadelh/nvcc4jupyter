@@ -26,7 +26,7 @@ class NVCCPlugin(ipym.Magics):
 
     @staticmethod
     def compile(file_path):
-        subprocess.check_output([compiler, file_path + ext,"-arch sm_12", "-o", file_path + ".out", "-std=c++11"], stderr=subprocess.STDOUT)
+        subprocess.check_output([compiler, file_path + ext,"-arch", "sm_12", "-o", file_path + ".out", "-std=c++11"], stderr=subprocess.STDOUT)
 
     def run(self, file_path, timeit=False):
         if timeit:
